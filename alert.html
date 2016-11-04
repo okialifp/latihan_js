@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+		<h1>Contoh Alert</h1>
+		<script type="text/javascript">
+			alert('Ini Alert');
+
+		</script>
+		<button onclick="alert('Alert onclick button')" >click Alert</button>
+		<button onclick="alert_custom('Alert onclick button')" >Fungsi event</button>
+		<script type="text/javascript">
+			
+			function alert_custom(){
+				alert('Alert dari function');
+				if(confirm('show again?')){
+					alert_custom();
+				}
+			}
+		</script>
+</body>
+</html>
