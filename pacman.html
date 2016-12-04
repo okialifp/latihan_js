@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<style type="text/css">
+	.pacman{
+		width: 0px;
+		height: 0px;
+		border: 20px solid black;
+		border-right: 20px solid transparent;
+		border-radius: 60px;
+		}
+
+</style>
+<div id="box"></div>
+<script type="text/javascript">
+	//pacman.html
+	var kotak = [10,10];
+	var pos = [0,0];
+	var x = 0,y = 1;
+
+	function render(kotak,pos) {
+		var box = '<table border=1>';
+			for (var i = 0;i<kotak[0];i++) {
+				box+= '<tr style="width:50px;height:50px;">';
+			for (var s = 0;s<kotak[1];s++) {
+				box += '<td style="width:50px;height:50px;">';
+				if (pos[0]==s && pos[1]==i) {
+					box += '<div class="pacman"></div>';
+				}
+				box += '</td>';
+			}
+			box += '</tr>';
+		}
+		box += '</table>';
+		return box;
+	}
+
+	document.getElementById('box').innerHTML= render(kotak,pos);
+
+	document.querySelector("body").addEventListener("keydown",function(e) {
+			var key = e.which || e.keyCode;
+			if(key === 40){
+				pos[y] = pos[y]+1;
+				document.getElementById('box').innerHTML= render(kotak,pos);
+			}else if(key === 38){
+				pos[y] = pos[y]-1;
+				document.getElementById('box').innerHTML= render(kotak,pos);
+			}else if(key === 39){
+				pos[x] = pos[x]+1;
+				document.getElementById('box').innerHTML= render(kotak,pos);
+			}else if(key === 37){
+				pos[x] = pos[x]-1;
+				document.getElementById('box').innerHTML= render(kotak,pos);	
+			
+			}
+
+		});
+
+</script>
+</body>
+</html>
